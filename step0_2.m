@@ -31,7 +31,7 @@ max_reaction_time = 10000;
 % scene: fixation
 fix1 = SingleTarget(triangle);  
 fix1.Target = triangle.Position;  
-fix1.Threshold = triangle.Size*1.3; 
+fix1.Threshold = triangle.Size*2; 
 wth1 = WaitThenHold(fix1);     
 wth1.WaitTime = max_reaction_time;
 wth1.HoldTime = 0; %no need to hold the click for a certain time 
@@ -50,9 +50,9 @@ end
 if 0==error_type %if the trial is a success
     run_scene(scene_sound,100); %play the sound twice
     run_scene(scene_sound,100);
-    idle(0);                 
-    goodmonkey(100, 'juiceline',1, 'numreward',20, 'pausetime',10); 
-    %and give the reward twice
+    goodmonkey(100, 'juiceline',1, 'numreward',20, 'pausetime',10);
+    %give the reward twice
+    idle(0);                
 else
     idle(700); %otherwise, wait 0.7s before the next trial  
 end
